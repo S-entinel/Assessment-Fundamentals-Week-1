@@ -3,10 +3,10 @@ Note: Do not add ANY variables to the global scope. This WILL break the tests.
 """
 
 
-def generate_invoice(receipt_string: str) -> str:
+def generate_invoice(receipt_str: str) -> str:
     """Turns a receipt string into a VAT invoice string."""
 
-    lines = receipt_string.strip().split("\n")
+    lines = receipt_str.strip().split("\n")
     item_lines = [line for line in lines if not line.startswith("Total:")]
 
     ex_vat_lines = []
@@ -37,8 +37,8 @@ def generate_invoice(receipt_string: str) -> str:
 
 
 if __name__ == "__main__":
-    receipt_string = """Bread x 2 - £3.60
+    RECEIPT_STRING = """Bread x 2 - £3.60
 Milk x 1 - £0.80
 Butter x 1 - £1.20
 Total: £5.60"""
-    print(generate_invoice(receipt_string))
+    print(generate_invoice(RECEIPT_STRING))

@@ -13,15 +13,15 @@ def add_to_basket(item: dict) -> list:
     return basket
 
 
-def generate_receipt(basket: list) -> str:
+def generate_receipt(item_basket: list) -> str:
     """Generate a formatted receipt string from a list of basket items."""
-    if not basket:
+    if not item_basket:
         return "Basket is empty"
 
     lines = []
     total_cost = 0
 
-    for item in basket:
+    for item in item_basket:
         item_name = item["name"]
         item_price = item["price"]
         total_cost += item_price
